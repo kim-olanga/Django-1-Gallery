@@ -1,10 +1,10 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 import datetime as dt
 from django.http import HttpResponse, Http404
 
 # Create your views here.
 def welcome(request):
-    return HttpResponse('welcome to the art gallery')
+    return render(request, 'welcome.html')
 
 def post_of_day(request):
     date = dt.date.today()
@@ -35,7 +35,7 @@ def past_days_post(request,past_date):
     except ValueError:
         # Raise 404 error when ValueError is thrown
         raise Http404()
-        
+
     day = convert_dates(date)
     html = f'''
         <html>
