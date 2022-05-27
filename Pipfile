@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
-django-bootstrap = "*"
+Django = "*"
+django-bootstrap3 = "*"
 
 [dev-packages]
 
