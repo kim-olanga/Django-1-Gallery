@@ -9,7 +9,7 @@ def welcome(request):
 def post_of_day(request):
     date = dt.date.today()
     
-    return render(request,'all-news/today-posts.html', {"date": date,})
+    return render(request,'all-posts/today-posts.html', {"date": date,})
 
 def convert_dates(dates):
     #Function that gets that weekday number for the date.
@@ -33,4 +33,4 @@ def past_days_post(request,past_date):
     if date == dt.date.today():
         return redirect(post_of_day)
 
-    return render(request, 'all-news/past-posts.html', {"date": date})
+    return render(request, 'all-posts/past-posts.html', {"date": date})
