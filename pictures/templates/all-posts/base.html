@@ -20,19 +20,39 @@
 <body>
     {% include "navbar.html" %}
 
-    <h1 class="col-md-12"> Welcome to the Art Gallery </h1>
+    <h1> Welcome to the Art Gallery </h1>
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h2> POST IT!! </h2>
-                <div class="card">
-                    <img class="img-thumbail" src="/static/image/minions.jpeg" alt="card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h2> POST IT!! </h2><br>
+                <div class="col-md-4">
+                    <div class="card my-2">
+                        <img class="img-thumbail" src="/static/image/minions.jpeg" alt="card image cap"> 
+                        <div class="card-body"><br>
+                          <p>Category:Animation</p><br>
+                          <a href="{% url 'photo' 1 %}" class="btn btn-primary">View....</a>
+                        </div>
+                    </div>
+                </div> <br>
+                <div class="col-md-4">
+                    <div class="card my-2">
+                        <img class="img-thumbail" src="/static/image/minions.jpeg" alt="card image cap"> 
+                        <div class="card-body"><br>
+                          <p>Category:Animation</p><br>
+                          <a href="{% url 'photo' 2 %}" class="btn btn-primary">View....</a>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="col-md-8">
+                    <div class="card my-2">
+                        <img class="img-thumbail" src="/static/image/minions.jpeg" alt="card image cap"> 
+                        <div class="card-body"><br>
+                          <p>Category:Animation</p><br>
+                          <a href="{% url 'photo' 3 %}" class="btn btn-primary">View....</a>
+                        </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
