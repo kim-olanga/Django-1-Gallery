@@ -6,6 +6,12 @@ from django.http import HttpResponse, Http404
 def welcome(request):
     return render(request, 'welcome.html')
 
+def viewPhoto(request, pk):
+    return render(request, 'photo.html')
+
+def addPhoto(request):
+    return render(request, 'add.html')
+
 def post_of_day(request):
     date = dt.date.today()
     
