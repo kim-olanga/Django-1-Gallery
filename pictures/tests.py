@@ -31,3 +31,20 @@ class LocationTestClass(TestCase):
         self.location.save_location()
         locations = Location.objects.all()
         self.assertTrue(len(locations) > 0)
+
+class ImageTestClass(TestCase):
+    def setUp(self):
+        
+        self.location = Location(location='Cartoon Network')
+        self.location.save_location()
+
+        self.category = Category(category='Animation')
+        self.category.save_category()
+        
+        self.new_Image=Image(image = "image/minions.jpeg",name ="minions", description="Cartoon is not animation", location_id = self.location, category_id= self.category)
+
+    def teardown(self):
+        Image.objects.all().delete()
+        Location.objects.all().delete()
+        Category.objects.all().delete()
+        
