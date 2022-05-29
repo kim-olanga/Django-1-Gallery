@@ -35,7 +35,7 @@ class LocationTestClass(TestCase):
 class ImageTestClass(TestCase):
     def setUp(self):
         
-        self.location = Location(location='Cartoon Network')
+        self.location = Location(location='Animation')
         self.location.save_location()
 
         self.category = Category(category='Animation')
@@ -61,7 +61,15 @@ class ImageTestClass(TestCase):
     #delete
     def test_deleteImage(self):
         self.new_Image.save_image()
-        self.new_image2 = Image.objects.create(image ='photos/test_img3.jpg', name = 'Jpg image', description= 'Png and jpg are image formats', location_id=self.location, category_id=self.category)
+        self.new_image2 = Image.objects.create(image ='image/minions.jpeg', name = 'Jpg image', description= 'jpg is an image format', location_id=self.location, category_id=self.category)
         Image.delete_image(self.new_Image.id)
         self.assertTrue(len(Image.objects.all())==1)
-        
+
+    #update 
+    def test_updateImage(self):
+        self.new_Image.save_image()
+        self.new_Image.update_image(self.new_Image.id, 'image/minions.jpeg')
+        new_updated_image = Image.objects.get(id=self.new_Image.id)
+        self.assertEqual(new_updated_image.image, 'image/minions.jpeg')
+    
+    
