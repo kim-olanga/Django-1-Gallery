@@ -2,9 +2,14 @@ from django.shortcuts import render, redirect
 import datetime as dt
 from django.http import HttpResponse, Http404
 
+from pictures.models import Category, Image, Location
+
 # Create your views here.
 def welcome(request):
-    return render(request, 'welcome.html')
+    categories=Category.objects.all()
+    locations=Location.objects.all()
+    all_images=Image.get_images()
+    return render(request, 'welcome.html',{"templateimages":all_images, 'categorytemplates':categories, 'locations':locations})
 
 def viewPhoto(request, pk):
     return render(request, 'photo.html')
