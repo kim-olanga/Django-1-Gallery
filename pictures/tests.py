@@ -47,4 +47,21 @@ class ImageTestClass(TestCase):
         Image.objects.all().delete()
         Location.objects.all().delete()
         Category.objects.all().delete()
+
+    #instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_Image,Image))
+
+    #save method
+    def test_save_method(self):
+        self.new_Image.save_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) > 0)
+
+    #delete
+    def test_deleteImage(self):
+        self.new_Image.save_image()
+        self.new_image2 = Image.objects.create(image ='photos/test_img3.jpg', name = 'Jpg image', description= 'Png and jpg are image formats', location_id=self.location, category_id=self.category)
+        Image.delete_image(self.new_Image.id)
+        self.assertTrue(len(Image.objects.all())==1)
         
