@@ -50,26 +50,25 @@ class Image(models.Model):
         cls.objects.filter(id=id).update(image=updatedimage)
     
     @classmethod
-    def get_images(cls):
-        images = Image.objects.all()
-        return images
+    def get_photos(cls):
+        photos = cls.objects.all()
+        return photos
         
     @classmethod
-    def search_image(cls,term_of_search):
-        images = cls.objects.filter(search__icontains=term_of_search)
-        return images
+    def get_image_by_id(cls,image_id):
+        image=cls.objects.get(id=image_id)
+        return image
+    
+    @classmethod
+    def search_by_category(cls,search_term):
+        photos=cls.objects.filter(name__icontains=search_term)
+        return photos
 
     @classmethod
-    def search_image(cls, search_term):
-        images = cls.objects.filter(name__icontains=search_term)
-        return images
-    
+    def filter_by_location(cls,location_id):
+        photos=cls.objects.filter(id=location_id)
+        return photos
+
     @classmethod
-    def search_image(cls, category):
-        images = cls.objects.filter(category_id__category__icontains=category)
-        return images
-    
-    @classmethod
-    def filter_by_location(cls, location_id):
-        location_filter_results = Image.objects.filter(location__id =location_id)
-        return location_filter_results
+    def filter_by_category(cls,category_id):
+        photos=cls.objects.filter(id=category_id)

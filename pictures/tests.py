@@ -35,13 +35,13 @@ class LocationTestClass(TestCase):
 class ImageTestClass(TestCase):
     def setUp(self):
         
-        self.location = Location(location='Animation')
-        self.location.save_location()
+        self.nairobi = Location(location='Nairobi')
+        self.nairobi.save_location()
 
         self.category = Category(category='Animation')
         self.category.save_category()
         
-        self.new_Image=Image(image = "image/minions.jpeg",name ="minions", description="Cartoon is not animation", location_id = self.location, category_id= self.category)
+        self.new_Image=Image(image = "image/minions.jpeg",name ="minions", description="Cartoon is not animation", location_id = self.nairobi, category_id= self.category)
 
     def teardown(self):
         Image.objects.all().delete()
