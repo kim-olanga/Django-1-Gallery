@@ -6,22 +6,24 @@ from .models import Category, Image, Location
 # Create your views here.
 def index(request):
     
-    photos=Image.get_photos()
+    images=Image.objects.all()
+    categories=Category.objects.all()
 
-    return render(request,'index.html',{"photos":photos})
+    return render(request,'index.html',{"images":images})
 
 def location(request,location_id):
-    photos=Image.objects.filter(location_id=location_id)
+    images=Image.objects.filter(location_id=location_id)
 
-    return render(request,'location.html',{"photos":photos})
+    return render(request,'location.html',{"images":images})
 
 def category(request,category_id):
-    photos=Image.objects.filter(category_id=category_id)
+    images=Image.objects.filter(category_id=category_id)
 
-    return render(request,'category.html',{"photos":photos})
+    return render(request,'category.html',{"images":images})
 
 
 def imagedetails(request,image_id):
+    image=Image.objects.get(id=image_id)
     try:
         image = Image.objects.get(id=image_id)
     except Image.DoesNotExist:

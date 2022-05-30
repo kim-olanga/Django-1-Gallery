@@ -23,7 +23,7 @@ class Category(models.Model):
         return self.category
 
 class Image(models.Model):
-    image= models.ImageField(upload_to='photos/', default ="photos/p.png")
+    image= models.ImageField(default ="default value")
     name =models.CharField(max_length=100)
     description =models.TextField()
     date_of_upload = models.DateTimeField(auto_now_add=True)
@@ -50,25 +50,26 @@ class Image(models.Model):
         cls.objects.filter(id=id).update(image=updatedimage)
     
     @classmethod
-    def get_photos(cls):
-        photos = cls.objects.all()
-        return photos
+    def get_all_images(cls):
+        images = Image.objects.all()
+        return images
         
     @classmethod
     def get_image_by_id(cls,image_id):
-        image=cls.objects.get(id=image_id)
+        image=Image.objects.get(id=image_id)
         return image
     
     @classmethod
     def search_by_category(cls,search_term):
-        photos=cls.objects.filter(name__icontains=search_term)
-        return photos
+        images=Image.objects.filter(name__icontains=search_term)
+        return images
 
     @classmethod
     def filter_by_location(cls,location_id):
-        photos=cls.objects.filter(id=location_id)
-        return photos
+        images=Image.objects.filter(id=location_id)
+        return images
 
     @classmethod
     def filter_by_category(cls,category_id):
-        photos=cls.objects.filter(id=category_id)
+        images=Image.objects.filter(id=category_id)
+        return images

@@ -4,24 +4,21 @@
 {{block.super}}
 
 <div class="container">
-  <body style="background-color:#D5F1F3">
-
 
 
   <!-- Looping through news   -->
 
   <div class="row">
-    {% for photo in photos %}
+    {% for image in images %}
 
     <!-- displaying images -->
     <div class="col-xs-4">
-
-    <a href="{% url 'imagedetails' photo.id %}"><img src="{{photo.image.url}}" class="img-responsive" alt="Image"></a>
-    <input class="form-control input-lg" type="text" value="https://gallery003.herokuapp.com{{photo.image.url}}" id ="{{photo.id}}-url">
+      <a href="{% url 'imagedetails' image.id %}"><img src="{{image.image.url}}" class="img-responsive" alt="Image"></a>
+      <input class="form-control input-lg" type="text" value="https://gallery003.herokuapp.com{{image.image.url}}" id ="{{image.id}}-url">
     <div class="panel panel-default">
 
   <div class="panel panel-footer">
-    <button type="button" class="btn btn-info" onclick="copyUrl('{{photo.id}}-url')">Copy Image Url</button>
+    <button type="button" class="btn btn-info" onclick="copyUrl('{{image.id}}-url')">Copy Image Url</button>
     </div>
   </div>
 </div>
@@ -32,7 +29,7 @@
         myVar.select();
         document.execCommand('copy')
       }
-    </script>
+  </script>
 
   {% empty %}
   <div class="row">
