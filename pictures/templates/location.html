@@ -3,21 +3,17 @@
 {% block content %}
 
 <div class="container">
-  <body style="background-color:#5B81A7">
 
-
-    <div class="row">
-     {% for photo in photos %}
-
+  <div class="row">
+     {% for image in images %}
 
       <div class="col-sm-4">
         
-       <h1 class="text-center">{{photo.location.name}}</h1>
-       <img src="{{photo.image.url}}"  class="img-responsive" alt="">
+       <h1 class="text-center">{{image.location.name}}</h1>
+       <img src="{{image.image.url}}"  class="img-responsive" alt="">
 
       </div>
      {% endfor %}
-    </div>
-  </body>
+  </div>
 </div>
 {% endblock %}

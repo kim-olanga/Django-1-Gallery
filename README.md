@@ -1,5 +1,5 @@
 # Project Name.
-- Django-1-Gallery
+- Gallery
 
 # Project Description.
 - This project is to enable me practice and implement some of the Django functions by creating an application where a user can add pictures and others can view.

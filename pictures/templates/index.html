@@ -3,17 +3,17 @@
 {% block content %}
 {{block.super}}
 
-<div class="container">
+<div class="card" style="height: 18rem;">
 
 
   <!-- Looping through news   -->
 
-  <div class="row">
+  <div class="card-body">
     {% for image in images %}
 
     <!-- displaying images -->
     <div class="col-xs-4">
-      <a href="{% url 'imagedetails' image.id %}"><img src="{{image.image.url}}" class="img-responsive" alt="Image"></a>
+      <a href="{% url 'imagedetails' image.id %}"><img src="{{image.image.url}}" class="img-responsive" alt="Image" width="75%" height="100%"></a>
       <input class="form-control input-lg" type="text" value="https://gallery003.herokuapp.com{{image.image.url}}" id ="{{image.id}}-url">
     <div class="panel panel-default">
 
