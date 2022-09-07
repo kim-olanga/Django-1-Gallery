@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import os
+import os, cloudinary
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
@@ -44,7 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
 ]
+
+cloudinary.config( 
+  cloud_name = "school-for-schoolis", 
+  api_key = "241414696281575", 
+  api_secret = "qIB93Jm8VZsvcypU_AeIBQewJpQ" 
+)
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',

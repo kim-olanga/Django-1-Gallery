@@ -1,7 +1,6 @@
 import datetime as dt
-from distutils.command.upload import upload
-from unicodedata import category
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Location(models.Model):
@@ -23,7 +22,7 @@ class Category(models.Model):
         return self.category
 
 class Image(models.Model):
-    image= models.ImageField(default ="default value")
+    image= CloudinaryField(default ="default value")
     name =models.CharField(max_length=100)
     description =models.TextField()
     date_of_upload = models.DateTimeField(auto_now_add=True)
